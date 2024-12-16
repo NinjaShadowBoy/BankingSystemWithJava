@@ -1,38 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
    <children>
-      <AnchorPane layoutX="162.0" layoutY="77.0" prefHeight="247.0" prefWidth="260.0">
+      <AnchorPane focusTraversable="true" layoutX="100.0" layoutY="68.0" prefHeight="261.0" prefWidth="346.0" snapToPixel="false" style="-fx-border-radius: 100;">
          <children>
-            <Text layoutX="1.0" layoutY="167.6103515625" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+            <Text fill="#001330" layoutX="63.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
             </Text>
-            <Text layoutY="130.6103515625" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+            <Text fill="#001330" layoutX="62.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
+               <effect>
+                  <Blend />
+               </effect>
             </Text>
-            <Text layoutX="1.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ISI Bank">
+            <Text fill="#001330" layoutX="78.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ISI Bank">
                <font>
                   <Font name="Poppins Bold" size="47.0" />
                </font>
+               <effect>
+                  <Blend />
+               </effect>
             </Text>
-            <TextField layoutX="78.0" layoutY="113.7177734375" />
-            <TextField layoutX="78.0" layoutY="149.7177734375" />
-            <Button blendMode="MULTIPLY" layoutX="78.0" layoutY="191.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Login">
+            <TextField fx:id="username" layoutX="152.0" layoutY="113.0" style="-fx-background-radius: 8;" />
+            <StackPane layoutX="152.0" layoutY="150.0">
+               <children>
+                  <PasswordField fx:id="pass" style="-fx-background-radius: 8;" />
+                  <TextField fx:id="passtext" style="-fx-background-radius: 8;" visible="false" />
+               </children>
+            </StackPane>
+            <JFXToggleButton fx:id="showpass" layoutX="152.0" layoutY="175.0" onAction="#togglePassword" prefHeight="36.0" prefWidth="142.0" size="7.0" text="Show password">
+               <effect>
+                  <Blend />
+               </effect>
+            </JFXToggleButton>
+            <JFXButton fx:id="submit" layoutX="153.0" layoutY="219.0" prefHeight="25.0" prefWidth="66.0" ripplerFill="#0051ae" style="-fx-background-color: darkblue; -fx-background-radius: 8;" text="Login" textFill="WHITE">
                <font>
                   <Font name="Poppins Bold" size="12.0" />
                </font>
-            </Button>
+               <effect>
+                  <Blend />
+               </effect>
+            </JFXButton>
          </children>
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
       </AnchorPane>
    </children>
 </AnchorPane>

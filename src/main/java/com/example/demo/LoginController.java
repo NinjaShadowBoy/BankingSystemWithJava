@@ -1,24 +1,44 @@
 package com.example.demo;
 
+
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class LoginController {
 
     @FXML
-    private JFXTextField accNum;
+    private PasswordField pass;
 
     @FXML
-    private JFXButton loginbtn;
+    private TextField passtext;
 
     @FXML
-    private JFXTextField pin;
+    private JFXToggleButton showpass;
 
     @FXML
-    void authenticate(ActionEvent event) {
+    private JFXButton submit;
 
+    @FXML
+    private TextField username;
+
+    @FXML
+    void togglePassword(ActionEvent event) {
+        if(pass.isVisible()){
+            pass.setVisible(false);
+        }else {
+            pass.setText(passtext.getText());
+            pass.setVisible(true);
+        }
+        if(passtext.isVisible()){
+            passtext.setVisible(false);
+        }else {
+            passtext.setText(pass.getText());
+            passtext.setVisible(true);
+        }
     }
 
 }
