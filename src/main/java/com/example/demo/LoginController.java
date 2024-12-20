@@ -26,6 +26,9 @@ public class LoginController {
     private TextField username;
 
     @FXML
+    private JFXButton signUpButton;
+
+    @FXML
     void togglePassword(ActionEvent event) {
         if(pass.isVisible()){
             pass.setVisible(false);

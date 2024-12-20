@@ -60,6 +60,7 @@
                   <Blend />
                </effect>
             </JFXButton>
+            <JFXButton fx:id="signUpButton" layoutX="235.0" layoutY="219.0" text="Sign Up" />
          </children>
          <rotationAxis>
             <Point3D />
