@@ -1,7 +1,10 @@
 package com.bankmanagement.models;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 public class Loan {
-    private int loanId;
+    public int loanId;
     private LoanType loanType;
     private double amount;
     private double interestRate;
@@ -52,5 +55,11 @@ public class Loan {
 
     public void setApprovedBy(int adminID) {
         this.approvedBy = adminID;
+    }
+
+    JsonObject toJson() {
+        JsonObject json = new Gson().toJsonTree(this).getAsJsonObject();
+        json.remove("loanId");
+        return json;
     }
 }

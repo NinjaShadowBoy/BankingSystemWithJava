@@ -1,7 +1,10 @@
 package com.bankmanagement.models;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 public class Transaction {
-    private int transactionId;
+    public int transactionId;
     private int accountId;
     private TransactionType type;
     private double amount;
@@ -15,5 +18,11 @@ public class Transaction {
         this.amount = amount;
         this.date = date;
         this.recipientAccountId = recipientAccountId;
+    }
+
+    JsonObject toJson() {
+        JsonObject json = new Gson().toJsonTree(this).getAsJsonObject();
+        json.remove("transactionId");
+        return json;
     }
 }

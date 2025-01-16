@@ -7,9 +7,9 @@
     "loans": 500002
   },
   "usernameToUser": {
-    "jsmith": "100001",
-    "jdoe": "100002",
-    "admin": "admin"
+    "jsmith": 100001,
+    "jdoe": 100002,
+    "admin": 200001
   },
   "regularUsers": {
     "100001": {
@@ -20,7 +20,7 @@
       "phone": "555-0123",
       "accountIds": [300001, 300002],
       "loanIds": [500001],
-      "transactionIds": [4000000, 4000001]
+      "transactionIds": [4000001, 4000002]
     },
     "100002": {
       "name": "Jane Doe",
@@ -30,7 +30,7 @@
       "phone": "555-0124",
       "accountIds": [300003],
       "loanIds": [],
-      "transactionIds": [4000002]
+      "transactionIds": [4000003]
     }
   },
   "admins": {
@@ -53,21 +53,21 @@
       "balance": 5000.00,
       "interestRate": 2.5,
       "openingDate": 1705276800000,
-      "transactionIds": [4000000, 4000001]
+      "transactionIds": [4000001, 4000002]
     },
     "300002": {
       "accountType": "CURRENT",
       "balance": 2500.00,
       "interestRate": 0.5,
       "openingDate": 1705276800000,
-      "transactionIds": [4000001]
+      "transactionIds": [4000002]
     },
     "300003": {
       "accountType": "SAVINGS",
       "balance": 7500.00,
       "interestRate": 2.5,
       "openingDate": 1704844800000,
-      "transactionIds": [4000002]
+      "transactionIds": [4000003]
     }
   },
   "transactions": {

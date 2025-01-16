@@ -1,5 +1,9 @@
 package com.bankmanagement.models;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 public abstract class User {
     protected int userId;
     protected String name;
@@ -14,4 +18,11 @@ public abstract class User {
         this.username = username;
         this.password = password;
     }
+    JsonObject toJson(){
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(this);
+        JsonObject json = JsonParser.parseString(jsonString).getAsJsonObject();
+        json.remove("userId");
+        return json;
+    };
 }
