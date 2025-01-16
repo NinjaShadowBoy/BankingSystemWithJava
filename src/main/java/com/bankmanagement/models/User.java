@@ -25,4 +25,6 @@ public abstract class User {
         json.remove("userId");
         return json;
     };
+
+    static User currentUser;
 }

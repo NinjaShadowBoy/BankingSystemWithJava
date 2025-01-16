@@ -1,9 +1,11 @@
 package com.bankmanagement.models;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,10 +40,9 @@ public class Bank {
     }
 
     // A global bank object
-    static Bank bank = new Bank();
-
     public static Bank loadBankDB (){
         Gson gson = new Gson();
+        Bank bank1 = new Bank();
         try (FileReader reader = new FileReader("test.json")) { // Parse the JSON file
             JsonObject jsonDB = JsonParser.parseReader(reader).getAsJsonObject(); // Extract attributes one by one
             JsonObject jsonIdtracker = jsonDB.get("idTracker").getAsJsonObject();
@@ -53,14 +54,14 @@ public class Bank {
             JsonObject jsonLoans = jsonDB.get("loans").getAsJsonObject();
 
             // Parse the idTracker and add it to the bank object
-            bank.idTracker = gson.fromJson(jsonIdtracker, IdTracker.class);
+            bank1.idTracker = gson.fromJson(jsonIdtracker, IdTracker.class);
 
             // Parse the transactions and put in the bank object
             for (Map.Entry<String, JsonElement> entry : jsonTransactions.entrySet()) {
                 int transactionId = Integer.parseInt(entry.getKey());
                 Transaction transaction = gson.fromJson(entry.getValue(), Transaction.class);
                 transaction.transactionId = transactionId;
-                bank.transactions.put(transactionId, transaction);
+                bank1.transactions.put(transactionId, transaction);
             }
 
             // Parse the loans and put in the bank object
@@ -68,7 +69,7 @@ public class Bank {
                 int loanId = Integer.parseInt(entry.getKey());
                 Loan loan = gson.fromJson(entry.getValue(), Loan.class);
                 loan.loanId = loanId;
-                bank.loans.put(loanId, loan);
+                bank1.loans.put(loanId, loan);
             }
 
             // Parse the admins and put them in the bank object
@@ -76,7 +77,7 @@ public class Bank {
                 int userId = Integer.parseInt(entry.getKey());
                 Admin admin = gson.fromJson(entry.getValue(), Admin.class);
                 admin.userId = userId;
-                bank.admins.put(admin.userId, admin);
+                bank1.admins.put(admin.userId, admin);
             }
 
             // Parse the Accounts and put them in the bank object
@@ -90,9 +91,9 @@ public class Bank {
                 account.setTransactions(new ArrayList<>());
                 JsonArray ids = entry.getValue().getAsJsonObject().get("transactionIds").getAsJsonArray();
                 for (int i = 0; i < ids.size(); i++) {
-                    account.getTransactions().add(bank.transactions.get(ids.get(i).getAsInt()));
+                    account.getTransactions().add(bank1.transactions.get(ids.get(i).getAsInt()));
                 }
-                bank.accounts.put(accountId, account);
+                bank1.accounts.put(accountId, account);
             }
 
             // Parse the regularUsers to put in the bank object
@@ -108,24 +109,33 @@ public class Bank {
 
                 JsonArray trIds = entry.getValue().getAsJsonObject().get("transactionIds").getAsJsonArray();
                 for (int i = 0; i < trIds.size(); i++) {
-                    user.getTransactions().add(bank.transactions.get(trIds.get(i).getAsInt()));
+                    user.getTransactions().add(bank1.transactions.get(trIds.get(i).getAsInt()));
                 }
                 JsonArray loIds = entry.getValue().getAsJsonObject().get("loanIds").getAsJsonArray();
                 for (int i = 0; i < loIds.size(); i++) {
-                    user.getLoans().add(bank.loans.get(loIds.get(i).getAsInt()));
+                    user.getLoans().add(bank1.loans.get(loIds.get(i).getAsInt()));
                 }
                 JsonArray accIds = entry.getValue().getAsJsonObject().get("accountIds").getAsJsonArray();
                 for (int i = 0; i < accIds.size(); i++) {
-                    user.getAccounts().add(bank.accounts.get(accIds.get(i).getAsInt()));
+                    user.getAccounts().add(bank1.accounts.get(accIds.get(i).getAsInt()));
                 }
-
-                bank.regularUsers.put(userId, user);
+                bank1.regularUsers.put(userId, user);
             }
-            String testDB = gson.toJson(bank);
+
+            // Parse the usernameToUser object and put it in the bank object
+            Type type = new TypeToken<Map<String, Integer>>(){}.getType();
+            bank1.usernameToUser = gson.fromJson(jsonUsernameToUser, type);
+
+//            String testDB = gson.toJson(bank);
 //            System.out.println(testDB);
         } catch (IOException e) { e.printStackTrace(); }
-        return bank;
+        return bank1;
     }
+    public void toJson(){
+        JsonObject json = new JsonObject();
+    }
+    // The bank database accessible everywhere
+    static Bank bank = Bank.loadBankDB();
 
     // Getters for the maps
     public Map<Integer, Account> getAccounts() {
@@ -144,6 +154,18 @@ public class Bank {
         return usernameToUser;
     }
 
+    // To get user from username
+    public User getUser(String username) {
+        if(usernameToUser.containsKey(username)) {
+            int id = usernameToUser.get(username);
+            if(id > 200000){
+                return this.admins.get(id);
+            } else if (id > 100000) {
+                return this.regularUsers.get(id);
+            }
+        }
+        return null;
+    }
     // Method to add User
     public void addUser(User user) {
     }
@@ -158,9 +180,5 @@ public class Bank {
 
     // Method to add Loan
     public void addLoan(Loan loan) {
-    }
-
-    public static void main(String[] args) {
-        Bank bank = Bank.loadBankDB();
     }
 }
