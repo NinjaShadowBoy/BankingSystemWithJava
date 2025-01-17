@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="transacPage" fx:id="trasacPage" prefHeight="434.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.TransactionHistPageController">
+<AnchorPane id="transacPage" fx:id="trasacPage" prefHeight="434.0" prefWidth="670.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.TransactionHistPageController">
    <children>
-      <Text layoutX="186.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction History Page" wrappingWidth="338.6796875">
+      <Text layoutX="154.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction History Page" wrappingWidth="370.6796875">
          <font>
-            <Font size="28.0" />
+            <Font name="Poppins Bold" size="28.0" />
          </font>
       </Text>
-      <TableView fx:id="transactionTable" layoutX="17.0" layoutY="173.0" prefHeight="247.0" prefWidth="636.0" />
-      <TextField id="myTime" alignment="CENTER" layoutX="136.0" layoutY="78.0" prefHeight="26.0" prefWidth="99.0" promptText="Time" />
-      <TextField id="myAmount" alignment="CENTER" layoutX="269.0" layoutY="78.0" prefHeight="26.0" prefWidth="112.0" promptText="Amount" />
-      <TextField id="myBalances" alignment="CENTER" layoutX="523.0" layoutY="79.0" prefHeight="26.0" prefWidth="112.0" promptText="Balance" />
-      <JFXButton id="butInsert" layoutX="312.0" layoutY="127.0" text="Insert" />
-      <ComboBox id="myComboBox" layoutX="407.0" layoutY="80.0" prefHeight="25.0" prefWidth="99.0" promptText="Type" />
-      <DatePicker layoutX="8.0" layoutY="79.0" prefHeight="25.0" prefWidth="119.0" promptText="Date" />
-      <Button fx:id="backButton" layoutX="17.0" layoutY="127.0" mnemonicParsing="false" onAction="#backToDashboard" text="Back to Dashboard" />
+      <TableView fx:id="transactionTable" layoutX="17.0" layoutY="111.0" prefHeight="309.0" prefWidth="636.0" />
+      <Button fx:id="backButton" layoutX="17.0" layoutY="69.0" mnemonicParsing="false" onAction="#backToDashboard" text="Back to Dashboard">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>

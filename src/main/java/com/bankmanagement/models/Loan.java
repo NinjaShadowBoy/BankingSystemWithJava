@@ -5,14 +5,14 @@ import com.google.gson.JsonObject;
 
 public class Loan {
     public int loanId;
-    private LoanType loanType;
-    private double amount;
-    private double interestRate;
-    private long startDate;
-    private int duration;  // in months
-    private double monthlyPayment;
-    private LoanStatus status;
-    private int approvedBy;  // admin userId who approved the loan
+    public LoanType loanType;
+    public double amount;
+    public double interestRate;
+    public long startDate;
+    public int duration;  // in months
+    public double monthlyPayment;
+    public LoanStatus status;
+    public int approvedBy;  // admin userId who approved the loan
 
     public Loan(int loanId, LoanType loanType, double amount, double interestRate,
                 long startDate, int duration, double monthlyPayment,
@@ -61,5 +61,53 @@ public class Loan {
         JsonObject json = new Gson().toJsonTree(this).getAsJsonObject();
         json.remove("loanId");
         return json;
+    }
+
+    // Getters
+    public int getLoanId() {
+        return loanId;
+    }
+    public void setLoanId(int loanId) {
+        this.loanId = loanId;
+    }
+    public LoanType getLoanType() {
+        return loanType;
+    }
+    public void setLoanType(LoanType loanType) {
+        this.loanType = loanType;
+    }
+    public double getAmount() {
+        return amount;
+    }
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+    public double getInterestRate() {
+        return interestRate;
+    }
+    public void setInterestRate(double interestRate) {
+        this.interestRate = interestRate;
+    }
+
+    public long getStartDate() {
+        return startDate;
+    }
+    public void setStartDate(long startDate) {
+        this.startDate = startDate;
+    }
+    public int getDuration() {
+        return duration;
+    }
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+    public LoanStatus getStatus() {
+        return status;
+    }
+    public void setStatus(LoanStatus status) {
+        this.status = status;
+    }
+    public int getApprovedBy() {
+        return approvedBy;
     }
 }

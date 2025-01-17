@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e84f8a77-adfb-40aa-92c8-e5e242d87e47" name="Changes" comment="Made a simple login page with no logic">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Dashboard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/RegularUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/RegularUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Loan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/LoanAgreementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/LoanAgreementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/TransactionHistPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/TransactionHistPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AccountDetailsPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/accountDetailsPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/loanAgreement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/loanAgreement.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/registration.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/transactionHistPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/transactionHistPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/test.json" afterDir="false" />
     </list>
@@ -118,6 +112,17 @@
       <updated>1736837328276</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Made a simple login page with no logic" />

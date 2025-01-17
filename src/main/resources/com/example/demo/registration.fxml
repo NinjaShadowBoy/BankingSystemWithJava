@@ -45,5 +45,6 @@
             <Font name="Poppins Regular" size="21.0" />
          </font>
       </Text>
+      <Button layoutX="378.0" layoutY="459.0" mnemonicParsing="false" onAction="#closeRegistrationForm" style="-fx-background-color: pink; -fx-border-color: red; -fx-border-radius: 4;" text="Cancel" />
    </children>
 </AnchorPane>

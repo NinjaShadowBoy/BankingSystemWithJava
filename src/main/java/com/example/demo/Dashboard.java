@@ -31,7 +31,7 @@ public class Dashboard implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         user = (RegularUser) User.currentUser;
         welcomeMessage.setText("Welcome "+ user.getUsername());
-        usrId.setText("usr id:"+user.getId());
+        usrId.setText("🙂 "+user.getName());
         account = user.getAccounts().get(accIndex);
         user.activeAccount = account;
         numAcc = user.getAccounts().size();
@@ -41,10 +41,10 @@ public class Dashboard implements Initializable {
 
     @FXML
     public void showAccountDetailsOnPage(Account account){
-        accId.setText("acc id:"+String.valueOf(account.getAccountId()));
+        accId.setText("   id:"+String.valueOf(account.getAccountId()));
         acctype.setText(account.getAccountType().toString() + " Account");
-        accbalance.setText("Balance $"+String.format("%.2f", account.getBalance()));
-        rate.setText(String.format("%.2f", account.getInterestRate())+"%");
+        accbalance.setText("Balance  💵$"+String.format("%.2f", account.getBalance()));
+        rate.setText(" 💹"+String.format("%.2f", account.getInterestRate())+"%");
         openingDate.setText("Opening date: "+ LocalDateTime.ofEpochSecond(account.getOpeningDate(), 0, ZoneOffset.UTC).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
     }
 
@@ -198,12 +198,21 @@ public class Dashboard implements Initializable {
     }
 
     @FXML
-    void loanDetails(ActionEvent event) throws IOException {
+    void loanDetails() throws IOException {
         Stage stage = (Stage) transactionPane.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("loanAgreement.fxml"));
         stage.setTitle("Loans");
         stage.setScene(new Scene(loader.load()));
         System.out.println("Loan page");
+    }
+
+    @FXML
+    void logout() throws IOException {
+        Stage stage = (Stage) transactionPane.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        stage.setTitle("Login");
+        stage.setScene(new Scene(loader.load()));
+        System.out.println("Login page");
     }
 
     @FXML

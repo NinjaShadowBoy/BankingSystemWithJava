@@ -254,6 +254,13 @@ public class Bank {
         }
     }
 
+    public Loan addLoan(LoanType loanType, double amount, double interestRate, long startDate, int duration, double monthlyPayment) {
+        int newId = this.idTracker.accounts++;
+        Loan newLoan = new Loan(newId, loanType, amount, interestRate, startDate, duration, monthlyPayment);
+        this.loans.put(newId, newLoan);
+        return newLoan;
+    }
+
     // Method to add Account
     public void addAccount(Account account) {
     }

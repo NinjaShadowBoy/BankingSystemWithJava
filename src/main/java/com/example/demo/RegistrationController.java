@@ -54,6 +54,15 @@ public class RegistrationController implements Initializable {
     private Text formError;
 
     @FXML
+    void closeRegistrationForm() throws IOException {
+        Stage stage = (Stage) formError.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        stage.setTitle("Login");
+        stage.setScene(new Scene(loader.load()));
+        System.out.println("Login");
+    }
+
+    @FXML
     void checkInformationForSubmit() throws InterruptedException, IOException {
         Bank bank = Bank.bank;
         System.out.println(conpass.getText());
@@ -98,11 +107,7 @@ public class RegistrationController implements Initializable {
         formError.setText("User successfully registered");
         bank.saveToFile();
         Thread.sleep(1000);
-        Stage stage = (Stage) formError.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
-        stage.setTitle("Login");
-        stage.setScene(new Scene(loader.load()));
-        System.out.println("Login");
+        closeRegistrationForm();
     }
 
     @FXML
