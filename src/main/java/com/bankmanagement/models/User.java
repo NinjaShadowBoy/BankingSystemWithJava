@@ -31,17 +31,20 @@ public abstract class User {
     public static User currentUser;
 
     // Getters
-    String getName(){
+    public String getName(){
         return name;
     }
-    String getEmail(){
+    public String getEmail(){
         return email;
     }
-    String getUsername(){
+    public String getUsername(){
         return username;
     }
     public String getPassword(){
         return password;
+    }
+    public String getId(){
+        return String.valueOf(userId);
     }
 
     // Setters

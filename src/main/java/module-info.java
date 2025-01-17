@@ -10,8 +10,8 @@ module com.example.demo {
     requires eu.hansolo.tilesfx;
     requires com.jfoenix;
     requires com.google.gson; // Ensure Gson is required
-    opens com.bankmanagement.models to com.google.gson;
+    opens com.bankmanagement.models to com.google.gson, javafx.base, javafx.controls, javafx.fxml, javafx.web;
 
-    opens com.example.demo to javafx.fxml;
+    opens com.example.demo to javafx.fxml,  com.google.gson, javafx.base, javafx.controls, javafx.web;
     exports com.example.demo;
 }

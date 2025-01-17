@@ -12,6 +12,7 @@ public class RegularUser extends User {
     private ArrayList<Account> accounts;
     private ArrayList<Loan> loans;
     private ArrayList<Transaction> transactions;
+    public Account activeAccount;
 
     public RegularUser(int userId, String name, String email, String username, String password, String phone) {
         super(userId, name, email, username, password);
@@ -52,15 +53,13 @@ public class RegularUser extends User {
     }
 
     // Getters
-    ArrayList<Transaction> getTransactions() {
+    public ArrayList<Transaction> getTransactions() {
         return transactions;
     }
-
-    ArrayList<Account> getAccounts() {
+    public ArrayList<Account> getAccounts() {
         return accounts;
     }
-
-    ArrayList<Loan> getLoans() {
+    public ArrayList<Loan> getLoans() {
         return loans;
     }
 

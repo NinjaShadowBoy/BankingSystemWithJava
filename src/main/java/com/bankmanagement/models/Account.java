@@ -16,7 +16,7 @@ public class Account {
     private long openingDate;
     private ArrayList<Transaction> transactions;
 
-    public Account(int accountId, AccountType accountType, double balance, double interestRate, int openingDate) {
+    public Account(int accountId, AccountType accountType, double balance, double interestRate, long openingDate) {
         this.accountId = accountId;
         this.accountType = accountType;
         this.balance = balance;
@@ -37,7 +37,7 @@ public class Account {
         }
 
         // Add the transactions Array to the object
-        json.add("transactions", transactionsJson);
+        json.add("transactionIds", transactionsJson);
 
         return json;
     }
@@ -48,5 +48,36 @@ public class Account {
 
     void setTransactions(ArrayList<Transaction> transactions) {
         this.transactions = transactions;
+    }
+
+    // Getters
+    public int getAccountId() {
+        return accountId;
+    }
+    public double getBalance() {
+        return balance;
+    }
+    public double getInterestRate() {
+        return interestRate;
+    }
+    public long getOpeningDate() {
+        return openingDate;
+    }
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    // Setters
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
+    }
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+    public void setInterestRate(double interestRate) {
+        this.interestRate = interestRate;
+    }
+    public void setOpeningDate(long openingDate) {
+        this.openingDate = openingDate;
     }
 }

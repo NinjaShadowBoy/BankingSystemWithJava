@@ -67,7 +67,7 @@ public class LoginController {
     }
 
     @FXML
-    void loginUser(ActionEvent event) {
+    void loginUser(ActionEvent event) throws IOException {
         Bank bank = Bank.bank;
         String usernameText = username.getText();
         if(usernameText.isEmpty()){
@@ -93,6 +93,11 @@ public class LoginController {
         }else {
             if(Objects.equals(user.getPassword(), passwordText)){
                 User.currentUser = user;
+                Stage stage = (Stage) signUpButton.getScene().getWindow();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
+                stage.setTitle("Dashboard");
+                stage.setScene(new Scene(loader.load()));
+                System.out.println("Dashboard");
             }else{
                 formError.setText("Invalid username or password");
                 formError.setVisible(true);

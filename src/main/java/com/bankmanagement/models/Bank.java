@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -85,7 +87,6 @@ public class Bank {
 
             // Parse the Accounts and put them in the bank object
             for (Map.Entry<String, JsonElement> entry : jsonAccounts.entrySet()) {
-                System.out.println(entry);
                 int accountId = Integer.parseInt(entry.getKey());
                 Account account = gson.fromJson(entry.getValue(), Account.class);
                 account.accountId = accountId;
@@ -177,10 +178,10 @@ public class Bank {
 
         // Clear the file contents if it exists
         try {
-            Files.deleteIfExists(Paths.get("output.json"));
+            Files.deleteIfExists(Paths.get("test.json"));
         } catch (IOException e) { e.printStackTrace(); }
         // Write to file
-        try ( FileWriter writer = new FileWriter("output.json")) {
+        try ( FileWriter writer = new FileWriter("test.json")) {
             writer.write(gson.toJson(json));
             System.out.println("JsonObject written to file.");
         } catch (IOException e) { e.printStackTrace(); }
@@ -223,17 +224,45 @@ public class Bank {
         RegularUser newUser = new RegularUser(newId, name, email, username, password, phone);
         this.regularUsers.put(newId, newUser);
         this.usernameToUser.put(username, newId);
+        newId = this.idTracker.accounts++;
+        Account newAccount = new Account(newId, AccountType.CURRENT, 1000, 1, LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+        this.accounts.put(newId, newAccount);
+        newUser.getAccounts().add(newAccount);
+    }
+
+    public void addTransaction(int accountId, double amount, TransactionType type, int recipientAccountId){
+        int newId = this.idTracker.accounts++;
+        Transaction t = new Transaction(newId, accountId, type, amount, LocalDateTime.now().toEpochSecond(ZoneOffset.UTC), recipientAccountId);
+        transactions.put(newId, t);
+        Account account = this.accounts.get(accountId);
+        for(RegularUser user: regularUsers.values()) {
+            if(user.getAccounts().contains(account)) {
+                account.getTransactions().add(t);
+                user.getTransactions().add(t);
+            }
+        }
+        if(type == TransactionType.TRANSFER){
+            account = this.accounts.get(recipientAccountId);
+            for(RegularUser user: regularUsers.values()) {
+                if(user.getAccounts().contains(account)) {
+                    if (!user.getTransactions().contains(t)) {
+                        user.getTransactions().add(t);
+                        account.getTransactions().add(t);
+                    }
+                }
+            }
+        }
     }
 
     // Method to add Account
     public void addAccount(Account account) {
     }
 
-    // Method to add Transaction
-    public void addTransaction(Transaction transaction) {
-    }
-
     // Method to add Loan
     public void addLoan(Loan loan) {
+    }
+
+    public Map<Integer, RegularUser> getRegularUsers() {
+        return regularUsers;
     }
 }
