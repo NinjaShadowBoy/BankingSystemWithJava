@@ -1,11 +1,15 @@
 package com.example.demo;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class TransactionHistPageController{
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class TransactionHistPageController implements Initializable {
 
     @FXML
     private TextField myAmount;
@@ -25,4 +29,8 @@ public class TransactionHistPageController{
     @FXML
     private AnchorPane trasacPage;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("TransactionHistPage");
+    }
 }

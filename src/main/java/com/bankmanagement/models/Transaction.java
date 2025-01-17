@@ -8,7 +8,7 @@ public class Transaction {
     private int accountId;
     private TransactionType type;
     private double amount;
-    private int date;
+    private long date;
     private Integer recipientAccountId;
 
     public Transaction(int transactionId, int accountId, TransactionType type, double amount, int date, Integer recipientAccountId) {

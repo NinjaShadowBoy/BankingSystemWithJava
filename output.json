@@ -1,0 +1,37 @@
+{
+  "idTracker":{
+  "regularUsers":100004,
+  "admins":200002,
+  "accounts":300004,
+  "transactions":4000004,
+  "loans":500002
+  },
+  "usernameToUser": {
+    "jsmith":100001,
+    "jdoe":100002,
+    "admin":200001,
+    "alex":100003
+  },
+  "regularUsers":{
+    "100001":{
+      "name":"John Smith",
+      "email":"john.smith@email.com",
+      "username":"jsmith",
+      "password":"1234",
+      "phone":"555-0123",
+      "accountIds":[300001,300002],
+      "loanIds":[500001],
+      "transactionIds":[4000001,4000002]
+    },
+    "100003":{
+      "name":"Alex",
+      "email":"alex@gmail.com",
+      "username":"alex",
+      "password":"alex",
+      "phone":"1234214",
+      "accountIds":[],
+      "loanIds":[],
+      "transactionIds":[]
+    },"100002":{"name":"Jane Doe","email":"jane.doe@email.com","username":"jdoe","password":"1234","phone":"555-0124","accountIds":[300003],"loanIds":[],"transactionIds":[4000003]}},
+  "admins":{"200001":{"name":"Admin User","email":"admin@bank.com","username":"admin","password":"1234","permissions":["USER_MANAGEMENT","ACCOUNT_MANAGEMENT","LOAN_MANAGEMENT","TRANSACTION_MANAGEMENT"]}},
+  "accounts":{"300001":{"accountType":"SAVINGS","balance":5000.0,"interestRate":2.5,"openingDate":174783488,"transactions":[4000001,4000002]},"300002":{"accountType":"CURRENT","balance":2500.0,"interestRate":0.5,"openingDate":174783488,"transactions":[4000002]},"300003":{"accountType":"SAVINGS","balance":7500.0,"interestRate":2.5,"openingDate":-257216512,"transactions":[4000003]}},"transactions":{"4000001":{"accountId":300001,"type":"DEPOSIT","amount":1000.0,"date":174783488},"4000003":{"accountId":300003,"type":"WITHDRAWAL","amount":200.0,"date":174783488},"4000002":{"accountId":300001,"type":"TRANSFER","amount":500.0,"date":261183488,"recipientAccountId":300002}},"loans":{"500001":{"loanType":"PERSONAL","amount":10000.0,"interestRate":8.5,"startDate":"1705276800000","duration":12,"monthlyPayment":875.5,"status":"ACTIVE","approvedBy":200001}}}

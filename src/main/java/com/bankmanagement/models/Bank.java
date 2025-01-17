@@ -4,8 +4,11 @@ import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +43,7 @@ public class Bank {
     }
 
     // A global bank object
-    public static Bank loadBankDB (){
+    private static Bank loadBankDB (){
         Gson gson = new Gson();
         Bank bank1 = new Bank();
         try (FileReader reader = new FileReader("test.json")) { // Parse the JSON file
@@ -131,11 +134,59 @@ public class Bank {
         } catch (IOException e) { e.printStackTrace(); }
         return bank1;
     }
-    public void toJson(){
+    public void saveToFile(){
+        Gson gson = new Gson();
         JsonObject json = new JsonObject();
+        json.add("idTracker", gson.toJsonTree(this.idTracker));
+        json.add("usernameToUser", gson.toJsonTree(this.usernameToUser));
+
+        // Convert regularUsers to json
+        JsonObject regularUsers = new JsonObject();
+        for (Map.Entry<Integer, RegularUser> entry: this.regularUsers.entrySet()){
+            regularUsers.add(entry.getKey().toString(), entry.getValue().toJson());
+        }
+        json.add("regularUsers", regularUsers);
+
+        // Convert admins to json
+        JsonObject admins = new JsonObject();
+        for (Map.Entry<Integer, Admin> entry : this.admins.entrySet()) {
+            admins.add(entry.getKey().toString(), entry.getValue().toJson());
+        }
+        json.add("admins", admins);
+
+        // Convert accounts to json
+        JsonObject accounts = new JsonObject();
+        for (Map.Entry<Integer, Account> entry: this.accounts.entrySet()){
+            accounts.add(entry.getKey().toString(), entry.getValue().toJson());
+        }
+        json.add("accounts", accounts);
+
+        // Convert transactions to json
+        JsonObject transactions = new JsonObject();
+        for (Map.Entry<Integer, Transaction> entry: this.transactions.entrySet()){
+            transactions.add(entry.getKey().toString(), entry.getValue().toJson());
+        }
+        json.add("transactions", transactions);
+
+        // Convert loans to json
+        JsonObject loans = new JsonObject();
+        for (Map.Entry<Integer, Loan> entry: this.loans.entrySet()){
+            loans.add(entry.getKey().toString(), entry.getValue().toJson());
+        }
+        json.add("loans", loans);
+
+        // Clear the file contents if it exists
+        try {
+            Files.deleteIfExists(Paths.get("output.json"));
+        } catch (IOException e) { e.printStackTrace(); }
+        // Write to file
+        try ( FileWriter writer = new FileWriter("output.json")) {
+            writer.write(gson.toJson(json));
+            System.out.println("JsonObject written to file.");
+        } catch (IOException e) { e.printStackTrace(); }
     }
     // The bank database accessible everywhere
-    static Bank bank = Bank.loadBankDB();
+    public static Bank bank = Bank.loadBankDB();
 
     // Getters for the maps
     public Map<Integer, Account> getAccounts() {
@@ -167,7 +218,11 @@ public class Bank {
         return null;
     }
     // Method to add User
-    public void addUser(User user) {
+    public void addregularUser(String name, String email, String username, String password, String phone) {
+        int newId = this.idTracker.regularUsers++;
+        RegularUser newUser = new RegularUser(newId, name, email, username, password, phone);
+        this.regularUsers.put(newId, newUser);
+        this.usernameToUser.put(username, newId);
     }
 
     // Method to add Account

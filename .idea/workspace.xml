@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e84f8a77-adfb-40aa-92c8-e5e242d87e47" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo5/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo5/LoanAgreementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/LoanAgreementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo5/LogOutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/LogOutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo5/ProfileManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/ProfileManagementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo5/helloview2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/helloview2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo5/loanAgreement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/loanAgreement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo5/logoutPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/logoutPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo5/profileManagement-Page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/profileManagement-Page.fxml" afterDir="false" />
+    <list default="true" id="e84f8a77-adfb-40aa-92c8-e5e242d87e47" name="Changes" comment="Made a simple login page with no logic">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Loan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/RegularUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/RegularUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bankmanagement/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/TransactionHistPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/TransactionHistPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/profileManagement-Page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/profileManagementPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/registration.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,13 +55,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
+    "Application.com.example.demo.HelloApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "C:/Users/hp/Documents/ING 3/ZZ PROJECTS/JAVA/demo5/src/main/resources/com/example/demo5",
-    "last_opened_file_path": "C:/Users/hp/Documents/ING 3/ZZ PROJECTS/JAVA/demo5/src/main/resources/com/example/demo5"
+    "last_opened_file_path": "C:/Users/hp/Documents/ING 3/ZZ PROJECTS/JAVA/demo5/src/main/resources/com/example/demo5",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -77,9 +85,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.demo5.HelloApplication" />
-      <module name="demo5" />
+    <configuration name="com.example.demo.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.HelloApplication" />
+      <module name="demo" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.*" />
@@ -92,7 +100,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.com.example.demo.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -106,6 +114,10 @@
       <updated>1736837328276</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Made a simple login page with no logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made a simple login page with no logic" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/demo5$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1736870228025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

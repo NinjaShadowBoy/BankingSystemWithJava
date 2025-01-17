@@ -52,7 +52,7 @@
                   <Blend />
                </effect>
             </JFXToggleButton>
-            <JFXButton fx:id="submit" layoutX="153.0" layoutY="219.0" prefHeight="25.0" prefWidth="66.0" ripplerFill="#0051ae" style="-fx-background-color: darkblue; -fx-background-radius: 8;" text="Login" textFill="WHITE">
+            <JFXButton fx:id="submit" layoutX="153.0" layoutY="219.0" onAction="#loginUser" prefHeight="25.0" prefWidth="66.0" ripplerFill="#0051ae" style="-fx-background-color: darkblue; -fx-background-radius: 8;" text="Login" textFill="WHITE">
                <font>
                   <Font name="Poppins Bold" size="12.0" />
                </font>
@@ -60,11 +60,16 @@
                   <Blend />
                </effect>
             </JFXButton>
-            <JFXButton fx:id="signUpButton" layoutX="235.0" layoutY="219.0" text="Sign Up" />
+            <JFXButton fx:id="signUpButton" layoutX="235.0" layoutY="219.0" onAction="#signUp" text="Sign Up" />
          </children>
          <rotationAxis>
             <Point3D />
          </rotationAxis>
       </AnchorPane>
+      <Text fx:id="formError" fill="#a80404" layoutX="235.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong login info!" visible="false">
+         <font>
+            <Font name="Poppins Regular" size="19.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

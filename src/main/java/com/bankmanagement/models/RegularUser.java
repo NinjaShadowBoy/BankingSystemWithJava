@@ -32,21 +32,21 @@ public class RegularUser extends User {
         for (Account account : this.accounts) {
             accountsJson.add(new JsonPrimitive(account.accountId));
         }
-        json.add("accounts", accountsJson);
+        json.add("accountIds", accountsJson);
 
         // Get all loan IDs
         JsonArray loansJson = new JsonArray();
         for (Loan loan : this.loans) {
             loansJson.add(new JsonPrimitive(loan.loanId));
         }
-        json.add("loans", loansJson);
+        json.add("loanIds", loansJson);
 
         // Get all transaction IDs
         JsonArray transactionsJson = new JsonArray();
         for (Transaction transaction : this.transactions) {
             transactionsJson.add(new JsonPrimitive(transaction.transactionId));
         }
-        json.add("transactions", transactionsJson);
+        json.add("transactionIds", transactionsJson);
 
         return json;
     }

@@ -20,11 +20,41 @@ public abstract class User {
     }
     JsonObject toJson(){
         Gson gson = new Gson();
-        String jsonString = gson.toJson(this);
-        JsonObject json = JsonParser.parseString(jsonString).getAsJsonObject();
-        json.remove("userId");
+        JsonObject json = new JsonObject();
+        json.addProperty("name", name);
+        json.addProperty("email", email);
+        json.addProperty("username", username);
+        json.addProperty("password", password);
         return json;
     };
 
-    static User currentUser;
+    public static User currentUser;
+
+    // Getters
+    String getName(){
+        return name;
+    }
+    String getEmail(){
+        return email;
+    }
+    String getUsername(){
+        return username;
+    }
+    public String getPassword(){
+        return password;
+    }
+
+    // Setters
+    void setName(String name){
+        this.name = name;
+    }
+    void setEmail(String email){
+        this.email = email;
+    }
+    void setUsername(String username){
+        this.username = username;
+    }
+    void setPassword(String password){
+        this.password = password;
+    }
 }

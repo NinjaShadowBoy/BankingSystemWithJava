@@ -13,7 +13,7 @@ public class Account {
     private AccountType accountType;
     private double balance;
     private double interestRate;
-    private int openingDate;
+    private long openingDate;
     private ArrayList<Transaction> transactions;
 
     public Account(int accountId, AccountType accountType, double balance, double interestRate, int openingDate) {
@@ -28,6 +28,7 @@ public class Account {
     JsonObject toJson() {
         JsonObject json = new Gson().toJsonTree(this).getAsJsonObject();
         json.remove("accountId");
+        json.remove("transactions");
 
         // Get all transaction IDs
         JsonArray transactionsJson = new JsonArray();
